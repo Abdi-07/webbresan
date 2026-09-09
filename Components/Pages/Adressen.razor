@@ -1,0 +1,46 @@
+@page "/Adressen"
+
+<PageTitle> Adressen -Webbresan</PageTitle>
+
+<h1>  Steg 1 och 2; adressen och DNS </h1>
+<p>   Här kommer förklarningen  </p>
+
+@page "/adressen"
+
+<PageTitle>Adressen - Webbresan</PageTitle>
+<h1> Steg 1 och 2: adressen och DNS</h1>
+<h2> Adressen delas upp</h2>
+<p>Vi följer den här adressen genom hela sajten:</p>
+<p class ="adress">https://www.scb.se/hitta-statistik/?fraga= befolkning#resultat</p>
+<tabel class="tabell">
+<caption>URL:ens delar</caption>
+<thead>
+<tr>
+<th scope="col">Del</th>
+<th scope="col">Värde</th>
+<th scope="col">Vad den gör</th>
+</tr>
+</thead>
+<tbody>
+
+    @foreach (var del in delar )
+    {
+        <tr>
+        <th scope="row">
+    } 
+
+
+
+    @code {
+        private record Del(string Namn, string Varde, string Beskrivning);
+
+        private readonly Del[] delar =
+        [
+            new("Protokoll", "https", "Hur samtalet ska föras. s står för krypterat."),
+            new("Domännamn", "www.scb.se", "Vilken server som ska svara."),
+            new("Sökväg", "/hitta-statistik/", "Vad på servern som efterfrågas."),
+            new("Frågesträng", "?fraga=befolkning", "Extra värden till servern."),
+            new("Fragment", "#resultat", "Var på sidan webbläsaren ska hoppa. Skickas aldrig till servern.")
+        ];
+    }
+    

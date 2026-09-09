@@ -1,0 +1,70 @@
+@page "svaret"
+<PageTitle>Svaret - Webbresan= Resan mot Världen 
+<h1> Steg 3 och 4: förfrågan och svar </h1>
+<h2> förfrågan </h2>
+
+<p>
+Webbläsaren skickar några rader text till servern. Det är hela hemligheten -
+HHTP är läsbar text.
+</p>
+
+<pre><code>GET /hitta-statistik/ HHTP/1.1
+Host: www.scd.se
+Accept:text/html
+User-Agent: Mozilla/5.0</code></prez>
+
+<p>
+
+Första ordet är <strong>metoden</strong>. <code>GET</code>betyder "ge mig",
+<code>POST</code> betyder "här kommer data". Vi använder båda i område 5.
+
+</p>
+
+<h2>Svaret</h2>
+<pre><code>HHTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+&lt:!DOCTYPE html&gt;...</code></pre> 
+
+<p>
+Talet på första raden är <strong> statuskoden</strong>.Den säger hur det gick,
+innan webbläsaren ens tittat på innehållet. 
+</p>
+
+<tabel class= "tabell">
+    <caption>Statuskoder du kommer att se i den här kursen</caption>
+    <thead>
+    <tr>
+    <th scope="col">Kod</th>
+    <th scope="col">Betyder</th>
+    <th scope="col">När du möter den</th>
+    </tr>
+      </thead>
+      <tbody>
+      @foreach(var kod in koder)
+      {
+        <tr>
+        <th scope= "row">@kod.Nummer</th>
+     <td>@kod.Namn</td>
+        <td>@kod.NarDuSerDen</td>
+
+        </tr>
+      }
+
+  </tbody>
+  </tabel>
+
+  <p>
+  prova själv: gå till <a href="/finns-inte">/finns-inte</a> och se vad som händer.
+ </p>
+
+ @code {
+  private record Statuskoder(int Nummer,string namn string NarDuSerDen);
+  private readonly Statuskoder[] koder =
+  [ 
+  new(200, "OK" ,"Allt gick bra.Den Vanligaste koden."),
+  new(301, "Flyttade permanent" ,"Adressen har bytt plats och webbläsaren skickas vidare."),
+  new(404, "Hittades inte" ,"Sökväg finns inte på servern.Ofta ett stavfel."),
+  new(200, "Serverfel" ,"Din egen kod kraschade. Den här kommer du se ofta."),
+  ];
+ }
+

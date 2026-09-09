@@ -1,7 +1,46 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+    <PageTitle>Webbresan – vad händer när du trycker enter?</PageTitle>
 
-<h1>Hello, world!</h1>
+    <h1>Vad händer när du trycker enter?</h1>
 
-Welcome to your new app.
+    <p>
+        Du skriver en adress i webbläsaren och trycker enter. En halv sekund senare
+        ligger sidan där. Den här sajten följer de fem stegen som hinner ske under tiden.
+    </p>
+
+    <ol>
+        <li>Webbläsaren delar upp <strong>adressen</strong> i sina delar.</li>
+        <li><strong>DNS</strong> översätter domännamnet till en IP-adress.</li>
+        <li>Webbläsaren skickar en <strong>förfrågan</strong> till servern på den adressen.</li>
+        <li>Servern skickar tillbaka ett <strong>svar</strong> med en statuskod och innehåll.</li>
+        <li>Webbläsaren <strong>ritar upp</strong> det den fick.</li>
+    </ol>
+
+    <h2>Den här sidan byggdes på servern</h2>
+
+    <p class="bevis">
+        Sidan skapades <strong>@byggdes.ToString("HH:mm:ss")</strong>
+        och fick löpnummer <strong>@nummer</strong>.
+    </p>
+
+    <p>
+        Ladda om sidan. Både klockslaget och löpnumret ändras. Ingenting av det står i
+        en fil på servern – texten fanns inte innan du bad om sidan.
+    </p>
+
+@code {
+  privete static int  antalVisningar = 0;
+
+  private DateTime byggdes = DateTime.Now;
+  private int nummer;
+
+  protected override void OnInitialized()  
+{
+nummer = ++antalVisningar;
+}
+
+
+}
+   
+   
