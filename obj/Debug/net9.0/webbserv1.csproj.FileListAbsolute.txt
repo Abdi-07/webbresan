@@ -76,3 +76,4 @@ C:\Skola\webbserv1\obj\Debug\net9.0\refint\webbserv1.dll
 C:\Skola\webbserv1\obj\Debug\net9.0\webbserv1.pdb
 C:\Skola\webbserv1\obj\Debug\net9.0\webbserv1.genruntimeconfig.cache
 C:\Skola\webbserv1\obj\Debug\net9.0\ref\webbserv1.dll
+C:\Skola\webbserv1\obj\Debug\net9.0\webbserv1.sourcelink.json

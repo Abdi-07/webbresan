@@ -58,3 +58,49 @@ h1:focus {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+/*Webbresan*/
+.adress {
+  font-family: monospace;  
+  font-size: 1.1rem;
+  background: #f3f3f3;
+  padding: .6rem .8rem;
+  border-left: 4px solid #1b6ec2;
+  overflow-wrap: anywhere;
+
+}
+
+.bevis{
+background:#eef6ff ;
+border: 1px solid #b9d8ff;
+padding: .8rem 1rem;
+
+}
+
+.tabell{
+border-collapse: collapse;
+width: 100%;
+margin:1rem 0;
+
+}
+
+
+ .tabell caption{
+text-align: left;
+font-weight: 600;
+padding-bottom:.4rem;
+
+}
+
+.tabell th
+.tabell td{
+border:1px solid #d0d0d0;
+padding:.4rem .6rem;
+text-align: left;
+vertical-align: top;
+}
+
+
+.tabell thead th {
+background: #f3f3f3;
+}

@@ -1,4 +1,4 @@
-@page "svaret"
+@page "/svaret"
 <PageTitle>Svaret - Webbresan= Resan mot Världen 
 <h1> Steg 3 och 4: förfrågan och svar </h1>
 <h2> förfrågan </h2>
@@ -30,7 +30,7 @@ Talet på första raden är <strong> statuskoden</strong>.Den säger hur det gic
 innan webbläsaren ens tittat på innehållet. 
 </p>
 
-<tabel class= "tabell">
+<tabel class="tabell">
     <caption>Statuskoder du kommer att se i den här kursen</caption>
     <thead>
     <tr>
@@ -58,13 +58,13 @@ innan webbläsaren ens tittat på innehållet.
  </p>
 
  @code {
-  private record Statuskoder(int Nummer,string namn string NarDuSerDen);
+  private record Statuskoder(int Nummer,string Namn, string NarDuSerDen);
   private readonly Statuskoder[] koder =
   [ 
   new(200, "OK" ,"Allt gick bra.Den Vanligaste koden."),
   new(301, "Flyttade permanent" ,"Adressen har bytt plats och webbläsaren skickas vidare."),
   new(404, "Hittades inte" ,"Sökväg finns inte på servern.Ofta ett stavfel."),
-  new(200, "Serverfel" ,"Din egen kod kraschade. Den här kommer du se ofta."),
+  new(200, "Serverfel" ,"Din egen kod kraschade. Den här kommer du se ofta.")
   ];
  }
 

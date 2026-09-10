@@ -1,0 +1,51 @@
+@page "/arkitekturen"
+<PageTitle>Arkitekturen-webbresan</PageTitle>
+<h1> Steg 5: hur den här sajten är byggd </h2>
+
+<p>
+Sidan du läser är inte en fil som ligger färdigt på servern. Den sätts ihop av flera filer varje gång någon ber om den. Så här går det till, ordning.
+</p>
+<tabel class="tabell">
+<caption> Filerna i projektet och vad de gör </caption>
+<thead>
+<tr>
+<th scope="col">Ordning  </th>
+<th scope="col">Fil </th>
+<th scope="col">Ansvar</th>
+</tr>
+</thead>
+<tbody>
+@foreach(var steg in kedjan)
+{
+
+<tr>
+    <th scope= "row">@steg.Ordning</th>
+    <td><code>@steg.Fil</code></td>
+    <td>@steg.Ansvar</td>
+    
+</tr>
+}
+</tbody>
+</table>
+
+<h2> Kedjan i en mening </h2> 
+
+<p>
+<code>Program.cs</code> starta  servern, <code> App.razor</code> bygger
+HTML-dokumentet, <code>Routes.razor</code> väljer sida utifrån adressen,
+<code>MAINLayout.razor</code> lägger ramen runt, och sidan själv fyller innehållet
+</p>
+
+@code
+{
+    private record Steg(int Ordning, string Fil string Ansvar);
+    private readonly Steg [] kedjan = 
+    [
+    new(1,"Program.cs" "Startar webbservern och bestämmer vad den kan svara på."),
+    new(2,"Components/App.razor", "Själva HTML-dokumentet:html, head och body."),
+    new(3,"Components/Routes.razor","Matchar adressen mot rätt sida.Ingen träff ger NotFound."),
+    new(4,"Components/Layout/MainLayout.razor","Ramen som alla sidor delar:meny och innehållsyta."),
+    new(5,"Components/Pages/Arkitekturen.razor","Den här sidan. Fyller @Body i layouten."),
+    new(6,"wwwwroot/app.css","Utseendet.Skickas som en egen fil till webbläsaren.")
+    ];
+}
